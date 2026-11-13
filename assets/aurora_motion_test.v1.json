@@ -1,0 +1,23 @@
+{
+  "id": "aurora_motion_test",
+  "title": "Aurora Motion Test",
+  "titleAr": "اختبار حركة الشفق القطبي",
+  "category": "background",
+  "version": "1.0.0",
+  "author": "GymPro Visual Lab",
+  "rating": 5,
+  "downloadsCount": 1,
+  "sizeKb": 1,
+  "tag": "ONLINE MOTION",
+  "description": "An original animated aurora field with drifting particles and luminous wave bands. This is a data-only GymPro canvas preset.",
+  "descriptionAr": "خلفية شفق قطبي أصلية مع جسيمات متحركة وموجات ضوئية متدفقة. حزمة بيانات آمنة لمحرّك GymPro.",
+  "previewType": "canvas_shader",
+  "safeVectorData": {
+    "colors": [
+      "#22d3ee",
+      "#8b5cf6",
+      "#34d399"
+    ],
+    "fps": 30
+  }
+}
