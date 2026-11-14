@@ -24,22 +24,22 @@ jobs:
         run: |
           mkdir -p _preview/assets
           cp index.html generator.html catalog.json _preview/
-          cp assets/*.json _preview/assets/
+          cp -R assets/. _preview/assets/
           cat > _preview/PREVIEW-README.txt <<'EOF'
-GymPro Motion Generator — isolated local preview
+          GymPro Motion Generator — isolated local preview
 
-This artifact is NOT published to GitHub Pages.
-1. Extract the artifact folder.
-2. Open PowerShell in the extracted folder.
-3. Run: py -m http.server 8000
-4. Open: http://localhost:8000/
-5. Click "Open Motion Generator".
-6. Keep Ollama running locally. Model default: qwen3.5:0.8b.
+          This artifact is NOT published to GitHub Pages.
+          1. Extract the artifact folder.
+          2. Open PowerShell in the extracted folder.
+          3. Run: py -m http.server 8000
+          4. Open: http://localhost:8000/
+          5. Click "Open Motion Generator".
+          6. Keep Ollama running locally. Model default: qwen3.5:0.8b.
 
-If browser CORS blocks localhost Ollama requests, configure Ollama's
-OLLAMA_ORIGINS to include http://localhost:8000 and restart Ollama.
-No cloud API is used. Candidate JSON remains local and is not published.
-EOF
+          If browser CORS blocks localhost Ollama requests, configure Ollama's
+          OLLAMA_ORIGINS to include http://localhost:8000 and restart Ollama.
+          No cloud API is used. Candidate JSON remains local and is not published.
+          EOF
       - name: Upload preview artifact (no Pages deployment)
         uses: actions/upload-artifact@v4
         with:
