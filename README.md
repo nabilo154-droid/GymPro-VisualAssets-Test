@@ -10,11 +10,11 @@ This repository hosts the public, static visual-asset catalogue used by GymPro's
 
 ## External component intake (including 21st.dev)
 
-21st.dev is used as a discovery and component-source library, not as a direct trusted animation feed. Retrieved React/TSX/CSS is untrusted source material. A candidate must be manually adapted into a supported GymPro data-only package (`canvas_shader`, `svg_vector`, or `css_micro`) and reviewed for provenance/licensing, reduced motion, performance, high-DPI behavior where relevant, off-screen pausing, theme/tone compatibility, and visual fidelity.
+21st.dev is the external discovery source. The public Visual Lab is a static, verified-only catalogue: it does not expose a 21st API key or fetch arbitrary component code in a visitor's browser. The authenticated 21st MCP/CLI connection is used by the agent/operator to search and retrieve a selected candidate. Retrieved React/TSX/CSS is untrusted source material and is never copied into the public catalogue as executable code. A candidate must be adapted into a supported GymPro data-only package (`canvas_shader`, `svg_vector`, or `css_micro`) and reviewed for provenance/licensing, reduced motion, performance, high-DPI behavior where relevant, off-screen pausing, theme/tone compatibility, and visual fidelity. Only entries with `compatibilityStatus: "verified"`, source provenance, and matching package integrity may enter `catalog.json`.
 
 The intake path is:
 
-`Discover → Record source & licence → Adapt → Preview/review → Validate → Publish`
+`21st.dev discovery (authenticated MCP/CLI) → Record source & licence → Adapt → Preview/review → Validate → Publish → Verified-only catalogue`
 
 There is no automatic ingestion of raw 21st.dev code and no runtime execution of downloaded source.
 
@@ -37,4 +37,4 @@ After merging the website PR, open **Settings → Pages** and set **Build and de
 
 ## Publishing a new asset
 
-Add the immutable package under `assets/`, update `catalog.json` with its metadata and source/licence attribution, and calculate `sizeBytes` and SHA-256 from the exact final package bytes. Open a pull request; the validator and regression checks must pass before the catalogue is merged and published.
+Add the immutable package under `assets/`, update `catalog.json` with `compatibilityStatus: "verified"`, `sourcePlatform`, `sourceUrl`, `verifiedAt`, and source/licence attribution, and calculate `sizeBytes` and SHA-256 from the exact final package bytes. The website filters/searches only these verified catalogue entries; the validator rejects candidates that are not marked verified. Open a pull request; the validator and regression checks must pass before the catalogue is merged and published.
