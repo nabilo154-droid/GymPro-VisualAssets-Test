@@ -32,6 +32,10 @@ class CatalogValidatorTests(unittest.TestCase):
                 **package, "description": "Test asset", "license": "CC0-1.0",
                 "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
                 "attribution": "Original", "minAppVersion": "2.5.0",
+                "compatibilityStatus": "verified",
+                "sourcePlatform": "GymPro Visual Lab",
+                "sourceUrl": "https://github.com/nabilo154-droid/GymPro-VisualAssets-Test",
+                "verifiedAt": "2026-01-01",
                 "sizeBytes": len(raw), "sizeKb": 1,
                 "sha256": hashlib.sha256(raw).hexdigest(),
                 "downloadUrl": "assets/sample.v1.json"
@@ -67,6 +71,28 @@ class CatalogValidatorTests(unittest.TestCase):
             result = self.run_validator(root)
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("inside assets", result.stderr)
+
+    def test_unverified_candidate_is_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.seed(root)
+            catalog = json.loads((root / "catalog.json").read_text())
+            catalog["assets"][0]["compatibilityStatus"] = "candidate"
+            (root / "catalog.json").write_text(json.dumps(catalog))
+            result = self.run_validator(root)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("only compatibilityStatus='verified'", result.stderr)
+
+    def test_missing_source_provenance_is_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.seed(root)
+            catalog = json.loads((root / "catalog.json").read_text())
+            del catalog["assets"][0]["sourceUrl"]
+            (root / "catalog.json").write_text(json.dumps(catalog))
+            result = self.run_validator(root)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("sourceUrl", result.stderr)
 
 
 if __name__ == "__main__":
