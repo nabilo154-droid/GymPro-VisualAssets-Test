@@ -4,7 +4,7 @@
 
 ## Source and intake
 
-21st.dev is a discovery and UI-component source, not a direct trusted GymPro animation feed. Retrieved React/TSX/CSS code is treated as untrusted source material. No downloaded source is copied into the public catalogue as-is and no external JavaScript, HTML, arbitrary CSS, remote iframe, or dependency bundle is executed by GymPro.
+21st.dev is a discovery and UI-component source, not a direct trusted GymPro animation feed. The authenticated MCP/CLI connection is used by the agent/operator to search and retrieve selected source material; the static public website never stores an API key or calls authenticated MCP from visitor browsers. Retrieved React/TSX/CSS code is untrusted source material. No downloaded source is copied into the public catalogue as-is and no external JavaScript, HTML, arbitrary CSS, remote iframe, or dependency bundle is executed by GymPro.
 
 For each candidate, record:
 - Source URL and source component/asset identity
@@ -13,7 +13,7 @@ For each candidate, record:
 - Intake date and adaptation notes
 - Target GymPro renderer and minimum app version
 
-Candidates without verifiable licensing/provenance or compatible terms are rejected.
+Candidates without verifiable licensing/provenance or compatible terms are rejected. Public catalogue entries must declare `compatibilityStatus: "verified"`, `sourcePlatform`, `sourceUrl` (HTTPS), and `verifiedAt` (YYYY-MM-DD); the validator rejects missing provenance or any non-verified status.
 
 ## Required compatibility review
 
@@ -55,7 +55,7 @@ A verified catalogue record should include unique ID, title (and Arabic title wh
 
 ## Acceptance gate
 
-A candidate is listed as **verified** only when:
+A candidate is listed in the public website as **verified** only when:
 - Source and license are documented and compatible.
 - It uses an allowed data-only renderer and schema.
 - Integrity values match the final exact package bytes.
