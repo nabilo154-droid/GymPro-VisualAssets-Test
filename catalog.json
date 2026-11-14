@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "catalogVersion": "1.0.1",
+  "catalogVersion": "1.0.2",
   "generatedAt": "2026-11-14T00:00:00.000Z",
   "assets": [
     {
@@ -17,6 +17,10 @@
       "description": "An original animated aurora field with drifting particles and luminous wave bands. This is a data-only GymPro canvas preset.",
       "descriptionAr": "خلفية شفق قطبي أصلية مع جسيمات متحركة وموجات ضوئية متدفقة. حزمة بيانات آمنة لمحرّك GymPro.",
       "previewType": "canvas_shader",
+      "compatibilityStatus": "verified",
+      "sourcePlatform": "GymPro Visual Lab",
+      "sourceUrl": "https://github.com/nabilo154-droid/GymPro-VisualAssets-Test",
+      "verifiedAt": "2026-11-14",
       "safeVectorData": {
         "colors": ["#22d3ee", "#8b5cf6", "#34d399"],
         "fps": 30
