@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "catalogVersion": "1.0.0",
-  "generatedAt": "2026-11-13T18:00:00.000Z",
+  "catalogVersion": "1.0.1",
+  "generatedAt": "2026-11-14T00:00:00.000Z",
   "assets": [
     {
       "id": "aurora_motion_test",
@@ -18,16 +18,12 @@
       "descriptionAr": "خلفية شفق قطبي أصلية مع جسيمات متحركة وموجات ضوئية متدفقة. حزمة بيانات آمنة لمحرّك GymPro.",
       "previewType": "canvas_shader",
       "safeVectorData": {
-        "colors": [
-          "#22d3ee",
-          "#8b5cf6",
-          "#34d399"
-        ],
+        "colors": ["#22d3ee", "#8b5cf6", "#34d399"],
         "fps": 30
       },
       "sizeBytes": 764,
       "sha256": "762fce3c8fff230897bed737f7e09f54617ea017ff1c4a54e8120bc876abc277",
-      "downloadUrl": "https://raw.githubusercontent.com/nabilo154-droid/GymPro-VisualAssets-Test/main/assets/aurora_motion_test.v1.json",
+      "downloadUrl": "assets/aurora_motion_test.v1.json",
       "license": "CC0-1.0",
       "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
       "attribution": "Original data-only animation package created for GymPro Visual Lab; released under CC0-1.0.",
