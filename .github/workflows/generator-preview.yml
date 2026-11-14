@@ -31,7 +31,7 @@ jobs:
           This artifact is NOT published to GitHub Pages.
           1. Extract the artifact folder.
           2. Open PowerShell in the extracted folder.
-          3. Run: py -m http.server 8000
+          3. Run: python -m http.server 8000
           4. Open: http://localhost:8000/
           5. Click "Open Motion Generator".
           6. Keep Ollama running locally. Model default: qwen3.5:0.8b.
