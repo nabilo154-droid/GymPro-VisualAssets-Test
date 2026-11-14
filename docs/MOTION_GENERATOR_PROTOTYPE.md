@@ -28,6 +28,16 @@ The existing GymPro Enterprise repository currently contains only its controlled
 5. If AI-assisted conversion is introduced, keep it behind a trusted server/agent boundary; never expose API credentials in the public static website and never execute generated source.
 6. Run reduced-motion, high-DPI, off-screen pause, performance, theme/tone, and layout-resize acceptance checks against the real renderer before marking a candidate verified.
 
+## Manual AI acceptance checks
+
+- Install Ollama and pull a Qwen model (for example, `ollama pull qwen3.5:4b`).
+- Start Ollama and configure its allowed browser origin if cross-origin access is denied.
+- Use Check local AI; verify the model appears in the local model list.
+- Generate from a prompt and pasted CSS/TSX; inspect constrained JSON and status.
+- Try source containing hostile instructions or script text; confirm it is treated as data, not executed.
+- Test malformed AI output / unsupported FPS / invalid palette; confirm validation rejects it.
+- Confirm no API key, source upload, catalogue write, or publication occurs.
+
 ## Manual prototype checks
 
 - Open `generator.html` from the Visual Lab site.
