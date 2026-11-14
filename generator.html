@@ -32,7 +32,7 @@ label{display:block;font-size:12px;font-weight:750;margin:14px 0 6px}input,texta
 <div class="actions"><button class="btn" id="generate" type="button">Generate GymPro candidate</button><button class="btn secondary" id="clear" type="button">Clear source</button></div>
 <div class="report" id="report" aria-live="polite">Ready. The generator is constrained to one approved template and a small set of safe parameters.</div>
 <label for="title">Candidate name</label><input id="title" maxlength="60" value="Aurora Motion">
-<label for="speed">Motion speed</label><div class="range-row"><input id="speed" type="range" min="1" max="10" value="4"><output id="speedValue">4</output></div>
+<label for="speed">Preview speed · visual only (not exported)</label><div class="range-row"><input id="speed" type="range" min="1" max="10" value="4"><output id="speedValue">4</output></div>
 <label for="fps">Target frame rate</label><div class="range-row"><input id="fps" type="range" min="15" max="30" step="5" value="30"><output id="fpsValue">30</output></div>
 <div class="actions"><button class="btn secondary" id="download" type="button" disabled>Download candidate JSON</button></div>
 </section>
@@ -40,7 +40,7 @@ label{display:block;font-size:12px;font-weight:750;margin:14px 0 6px}input,texta
 <h2>2 · Preview and inspect</h2><p class="hint">A constrained visual preview of the selected palette and motion intensity.</p>
 <div class="preview"><canvas id="preview" aria-label="GymPro motion candidate preview"></canvas><span class="preview-label">LAB PREVIEW · TEMPLATE: AURORA</span></div>
 <div class="palette" id="palette" aria-label="Extracted palette"></div>
-<div class="report" id="mapping"><strong>Template:</strong> Aurora · <strong>Renderer:</strong> canvas_shader<br><strong>Editable values:</strong> palette, speed, FPS. Animation implementation remains fixed.</div>
+<div class="report" id="mapping"><strong>Template:</strong> Aurora · <strong>Renderer:</strong> canvas_shader<br><strong>Exported values:</strong> palette and FPS. Preview speed is visual-only; animation implementation remains fixed.</div>
 <div class="notice safe">Safe by design: no eval, dynamic imports, script injection, remote iframe, or execution of pasted component code.</div>
 <div class="report"><strong>Before publication:</strong> verify source URL, creator, licence and attribution; compare the candidate against the original; then validate it against the actual GymPro Enterprise renderer and performance/accessibility requirements.</div>
 </section>
