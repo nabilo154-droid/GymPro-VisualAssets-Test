@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CATALOG_PATH = ROOT / "catalog.json"
 ALLOWED_RENDERERS = {"canvas_shader", "svg_vector", "css_micro"}
 SEMVER = re.compile(r"^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$")
+ISO_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 REQUIRED_PACKAGE_FIELDS = {
     "id", "title", "category", "version", "author", "previewType", "safeVectorData"
@@ -65,8 +66,17 @@ def validate_catalog() -> int:
 
         for field in ("title", "category", "version", "author", "description",
                       "previewType", "downloadUrl", "license", "licenseUrl",
-                      "attribution", "minAppVersion"):
+                      "attribution", "minAppVersion", "compatibilityStatus",
+                      "sourcePlatform", "sourceUrl", "verifiedAt"):
             require_string(item, field, label)
+
+        if item["compatibilityStatus"] != "verified":
+            fail(f"{label}: only compatibilityStatus='verified' assets may enter the public catalogue")
+        if not ISO_DATE.fullmatch(item["verifiedAt"]):
+            fail(f"{label}: verifiedAt must use YYYY-MM-DD")
+        source_url = urlparse(item["sourceUrl"])
+        if source_url.scheme != "https" or not source_url.netloc:
+            fail(f"{label}: sourceUrl must be an HTTPS URL")
 
         renderer = item["previewType"]
         if renderer not in ALLOWED_RENDERERS:
@@ -134,7 +144,7 @@ def validate_catalog() -> int:
         ):
             fail(f"{label}: sizeKb understates actual package size")
 
-    print(f"GymPro Visual Lab catalogue validation passed: {len(assets)} asset(s).")
+    print(f"GymPro Visual Lab catalogue validation passed: {len(assets)} verified asset(s).")
     return len(assets)
 
 
