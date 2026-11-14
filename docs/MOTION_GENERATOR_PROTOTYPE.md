@@ -30,7 +30,7 @@ The existing GymPro Enterprise repository currently contains only its controlled
 
 ## Manual AI acceptance checks
 
-- Install Ollama and pull a Qwen model (for example, `ollama pull qwen3.5:4b`).
+- Install Ollama and pull a Qwen model (for example, `ollama pull qwen3.5:0.8b`).
 - Start Ollama and configure its allowed browser origin if cross-origin access is denied.
 - Use Check local AI; verify the model appears in the local model list.
 - Generate from a prompt and pasted CSS/TSX; inspect constrained JSON and status.
@@ -40,7 +40,7 @@ The existing GymPro Enterprise repository currently contains only its controlled
 
 ## Manual prototype checks
 
-- Open `generator.html` from the Visual Lab site.
+- Open `generator.html` from the Visual Lab site, or use the isolated `generator-preview` Actions artifact for local testing without changing the published GitHub Pages site.
 - Generate from a text prompt with no source.
 - Paste CSS/TSX containing a few hex colors and animation declarations; verify only color tokens and hint labels are extracted.
 - Paste code containing script tags or expressions; verify no code is executed and no network request is made.
