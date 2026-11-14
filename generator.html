@@ -31,7 +31,7 @@ label{display:block;font-size:12px;font-weight:750;margin:14px 0 6px}input,texta
 <label for="source">Code to Motion · React / TSX / CSS</label><textarea id="source" spellcheck="false" placeholder="Paste component source here. It will be scanned for visual hints only. Nothing in this field is executed."></textarea>
 <div class="notice safe"><strong>Optional local AI:</strong> connect to Ollama running on your own computer. No provider key or cloud service is used.</div>
 <label for="ollamaUrl">Ollama endpoint</label><input id="ollamaUrl" value="http://localhost:11434" inputmode="url" placeholder="http://localhost:11434">
-<label for="ollamaModel">Local model</label><input id="ollamaModel" value="qwen3.5:4b" maxlength="100" placeholder="qwen3.5:4b">
+<label for="ollamaModel">Local model</label><input id="ollamaModel" value="qwen3.5:0.8b" maxlength="100" placeholder="qwen3.5:0.8b">
 <div class="actions"><button class="btn secondary" id="checkAI" type="button">Check local AI</button><button class="btn" id="generate" type="button">Generate GymPro candidate</button><button class="btn secondary" id="clear" type="button">Clear source</button></div>
 <div class="report" id="aiStatus" aria-live="polite">AI is optional. If Ollama is installed and the model is downloaded, use Check local AI.</div>
 <div class="actions"><button class="btn secondary" id="fallback" type="button" hidden>Generate fallback</button></div>
